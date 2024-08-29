@@ -11,7 +11,8 @@ export default class TodoRepository {
     }
 
     async create(data) {
-        return this.#schedule.insertOne(data)
+        const { $loki, meta, ...result} = this.#schedule.insertOne(data)
+        return result
     }
 }
 
